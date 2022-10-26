@@ -1,0 +1,19 @@
+{
+    "name": "state and city mapping",
+    "data": [
+        {
+            "id":"1",
+            "state": "ANDHRA PRADESH",
+            "cities": [
+                "Bhimavaram",
+                "Vijayawada",
+                "Visakhapatnam"
+            ]
+        },
+        {
+            "id": "2",
+            "state": "TELANGANA",
+            "cities": ["Hyederabad","Adilabad","Nizamabad"]
+        }
+    ]
+}
