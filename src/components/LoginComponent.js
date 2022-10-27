@@ -34,7 +34,7 @@ const LoginComponent=()=> {
                     <form id='loginform' className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
                   
                        
-                        <input name="email" {...register("email", {
+                        <input data-testid="email-input" name="email" {...register("email", {
                             pattern: { value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i, message: "*please provide correct email id" }, required: true, validate: (value) => {
 
                                 return registeredUsers.includes(value);
