@@ -1,25 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { isValidPhoneNumber } from "react-phone-number-input";
 import { useForm } from 'react-hook-form';
 import stateData from '../states.json';
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from "../redux/userActions";
+import Popup from 'reactjs-popup';
+import { AiFillQuestionCircle } from 'react-icons/ai';
 
 
 const RegisterComponent=()=> {
-
+    const [submitRegister, setSubmitRegister] = useState(false)
     const registeredUsers = useSelector((state) => state.registeredUsers)
-
     const { register, handleSubmit, watch, formState: { errors }, getValues } = useForm();
     const dispatch = useDispatch()
-    const onSubmit = data => { console.log(registeredUsers); dispatch(registerUser(data)) }
+    const onSubmit = (data, e) => {
+        console.log(registeredUsers);
+        dispatch(registerUser(data));
+        e.target.reset();
+        setSubmitRegister(true);
 
+    }
 
 
     return (
         <section>
             <div className="register">
+                {submitRegister && <div>
+                    <span>Registered successfully</span>
+                </div>}
                 <div className="col-1">
                     <h2>Sign In</h2>
                     <form id='form' className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
@@ -68,7 +77,28 @@ const RegisterComponent=()=> {
                                             value: /^([A-Z])(?=(.*[A-Z]){1,})(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{5,8}$/i,
                                             message: "please enter valid password"
                                         }
-                                    })} placeholder='password' />
+                                    })} placeholder='password' />  <Popup trigger={<a> <AiFillQuestionCircle /></a>}
+                                        position="right center">
+                                        <div>password criteria</div>
+                                        <ol>
+                                            <li>
+                                                start with capital letter
+                                            </li>
+                                            <li>
+                                                should contain atleast one number
+                                            </li>
+                                            <li>
+                                                should contain atleast one small letter
+                                            </li>
+                                            <li>
+                                                should contain atleast one special letter
+                                            </li>
+                                            <li>
+                                                password length greater than 5 and less than 8
+                                            </li>
+                                        </ol>
+
+                                    </Popup>
                                     <p>
                                         <span className='error'>{errors.password?.type === "required" && "*password is required"}</span>
                                         <span className='error'>{errors.password?.message} </span></p></div>
@@ -85,6 +115,23 @@ const RegisterComponent=()=> {
 
                                 <div>
                                     <input name="pan" {...register("pan", { pattern: { value: /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/i, message: "*please provide correct PAN Number" }, required: true })} placeholder='PAN Number' />
+                                    <Popup trigger={<a> <AiFillQuestionCircle /></a>}
+                                        position="right center">
+                                        <div>PAN number criteria</div>
+                                        <ol>
+                                            <li>
+                                                first five and last should be alphabets
+                                            </li>
+                                            <li>
+                                                second four should be digits
+                                            </li>
+                                            <li>
+                                                Number should be of length 10
+                                            </li>
+
+                                        </ol>
+
+                                    </Popup>
                                     <p>
                                         <span className='error'>{errors.pan?.type === "required" && "*PAN number is required"}</span>
                                         <span className='error'>{errors.pan?.message} </span>
