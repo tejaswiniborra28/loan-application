@@ -18,6 +18,9 @@ test (" test for validation of Name input", ()=>{
     const inputEl = screen.getByTestId("first name");
     expect(inputEl).toBeInTheDocument();
     expect(inputEl).toHaveAttribute("type", "text");
+    // const inputError = screen.getByTestId("error1");
+    // expect(inputError).toBeInTheDocument();
+    // expect(inputError).toHaveTextContent("required" && "*Mobile Number is required");
     const inputE2 = screen.getByTestId("last name");
     expect(inputE2).toBeInTheDocument();
     expect(inputE2).toHaveAttribute("name", "LastName");
@@ -74,9 +77,10 @@ test (" test for validation of password input and Pan", ()=>{
      })
 
     test (" test for validation of Country, State,City input", ()=>{
+        const onSubmit = jest.fn();
         render(<Provider store={store}>
            <BrowserRouter>
-            <RegisterComponent />
+            <RegisterComponent onSubmit={onSubmit} />
             </BrowserRouter>
             </Provider>)
 
@@ -91,9 +95,13 @@ expect(inputE2).toHaveAttribute("name", "state");
 const inputE3 = screen.getByTestId("city");
 expect(inputE3).toBeInTheDocument();
 expect(inputE3).toHaveAttribute("name", "city");
-  const btnRegister = screen.getByTestId("btn");
-    fireEvent.click(btnRegister);
-    expect(screen.getByTestId("btn")).toHaveTextContent("Register");
+const btnRegister = screen.getByTestId("btn");
+fireEvent.click(btnRegister);
+ const abc= screen.getByTestId("submit")
+// const { getByText } = render(<Form onSubmit={onSubmit} />);
+ fireEvent.click(abc);
+// expect(abc).toHaveBeenCalled(0);
+expect(screen.getByTestId("btn")).toHaveTextContent("Register");
 
     const LogIn= screen.getByText("Login here")
     expect(LogIn).toBeInTheDocument();
