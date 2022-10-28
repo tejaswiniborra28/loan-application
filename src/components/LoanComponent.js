@@ -4,18 +4,24 @@ import { useSelector, useDispatch } from 'react-redux';
 import { applyLoan } from "../redux/userActions";
 import Popup from 'reactjs-popup';
 import { AiFillQuestionCircle } from 'react-icons/ai';
+import { useNavigate } from "react-router-dom";
 
 const LoanComponent = () => {
     const [existingLoan, setExistingLoan] = useState(null);
-    const [loanSubmitted, setLoanSubmitted] = useState(false)
+    const [loanSubmitted, setLoanSubmitted] = useState(false);
+    const navigate = useNavigate();
     const { register, handleSubmit, watch, formState: { errors }, getValues } = useForm();
     const dispatch = useDispatch();
     const loandetails = useSelector((state) => state.users.filter((e) => e.email === state.currentUser));
 
-    const watchpurpose = watch("purpose", "Others");
+    const watchpurpose = watch("purpose");
+
     const onSubmit = (data, e) => {
-        console.log(data); dispatch(applyLoan(data)); e.target.reset();
-        setLoanSubmitted(true)
+        console.log(data);
+        dispatch(applyLoan(data)); e.target.reset();
+        setLoanSubmitted(true);
+        navigate("/loandetails");
+
     }
     return (
         <section>
@@ -120,25 +126,10 @@ const LoanComponent = () => {
                             <div>
                                 <label>Loan Duration:</label>
                                 <select name="duration" placeholder='Enter Loan Duration' {...register('duration')}>
-                                    <option value="6">6 months</option>
-                                    <option value="7">7 months</option>
-                                    <option value="8">8 months</option>
-                                    <option value="9">9 months</option>
-                                    <option value="10">10 months</option>
-                                    <option value="11">11 months</option>
-                                    <option value="12">12 months</option>
-                                    <option value="13">13 months</option>
-                                    <option value="14">14 months</option>
-                                    <option value="15">15 months</option>
-                                    <option value="16">16 months</option>
-                                    <option value="17">17 months</option>
-                                    <option value="18">18 months</option>
-                                    <option value="19">19 months</option>
-                                    <option value="20">20 months</option>
-                                    <option value="21">21 months</option>
-                                    <option value="22">22 months</option>
-                                    <option value="23">23 months</option>
-                                    <option value="24">24 months</option>
+                                    <option value="5">5 years</option>
+                                    <option value="10">10 years</option>
+                                    <option value="15">15 years</option>
+                                    <option value="20">20 years</option>
                                 </select>
                                 <span className='error'>{errors.duration?.type === "required" && "*Loan duration is required"}</span>
 
@@ -147,7 +138,7 @@ const LoanComponent = () => {
                                 <label>Loan Purpose:</label>
                                 <select name="purpose" placeholder='Select Loan Purpose ' {...register('purpose')}>
                                     <option value="Others">Others</option>
-                                    <option value="Car Purchase">Car Loan</option>
+                                    <option value="Car Loan">Car Loan</option>
                                     <option value="Home Loan">Home Loan</option>
                                     <option value="Bussiness">Bussiness</option>
                                 </select>
@@ -163,6 +154,16 @@ const LoanComponent = () => {
                                     <span className='error'>{errors.description?.type === "required" && "*Loan purpose is required"}</span>
 
                                 </div>}
+
+                            <div>
+                                <label>Rate Of Interest:</label>
+                                <input name="RofI"
+                                    value={watchpurpose === "Others" ? "10" : watchpurpose === "Car Loan" ? "7" : watchpurpose === "Home Loan" ? "8" : "10"}
+                                    {...register("RofI", {
+                                        required: true,
+                                    })} />
+                            </div>
+
 
 
                             <button className='btn' data-testid="btn">Apply</button>
@@ -182,4 +183,4 @@ const LoanComponent = () => {
     )
 }
 
-export default LoanComponent
+export default LoanComponent;

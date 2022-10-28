@@ -47,7 +47,7 @@ test (" test for validation of password input", ()=>{
     const btnIncrement = screen.getByTestId("btn");
     fireEvent.click(btnIncrement);
  
-    expect(screen.getByTestId("btn")).toHaveTextContent("Login In");
+    expect(screen.getByTestId("btn")).toHaveTextContent("Login");
 
     const register= screen.getByText("Register here")
     expect(register).toBeInTheDocument();

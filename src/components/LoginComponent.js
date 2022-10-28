@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
 import { login,updateCurrentUser } from "../redux/userActions";
-
+ 
 
 
 const LoginComponent=()=> {
@@ -29,12 +29,11 @@ const LoginComponent=()=> {
         <section>
             <div className="register">
                 <div className="col-1">
-                    <h2>Login In</h2>
-
+                    <h2>Login</h2>
                     <form id='loginform' className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
                   
                        
-                        <input data-testid="email-input" name="email" {...register("email", {
+                        <input  data-testid="email-input"  name="email" {...register("email", {
                             pattern: { value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i, message: "*please provide correct email id" }, required: true, validate: (value) => {
 
                                 return registeredUsers.includes(value);
@@ -76,18 +75,16 @@ const LoginComponent=()=> {
                         <span className='error'>{errors.password?.type === "required" && "*password is required"}</span>
                         <span className='error'>{errors.password?.message} </span>
                         
-                        <button className='btn' data-testid="btn">Login In</button>
+                        <button className='btn' data-testid="btn">Login</button>
                         <div className='error'>{errors.email?.type === "validate" && "*if you are new user. Please register"}</div>
 
-                    </form>
-                    <ul>
-                        <li>
+                    <a>
                             <Link to="/register">Register here</Link>
-                        </li>
-                    </ul>
+                        </a>
+                    </form>
+                    </div>
                 </div>
               
-            </div >
         </section >
     )
 }

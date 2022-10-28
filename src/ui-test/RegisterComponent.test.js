@@ -13,7 +13,7 @@ test (" test for validation of Name input", ()=>{
         <RegisterComponent />
         </BrowserRouter>
         </Provider>)
-    const heading= screen.getByText("Sign In")
+    const heading= screen.getByText("Sign Up")
     expect(heading).toBeInTheDocument();    
     const inputEl = screen.getByTestId("first name");
     expect(inputEl).toBeInTheDocument();

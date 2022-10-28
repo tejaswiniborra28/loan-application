@@ -1,6 +1,7 @@
 import LoginComponent from './components/LoginComponent';
 import RegisterComponent from './components/RegisterComponent';
 import LoanComponent from './components/LoanComponent';
+import LoanDetailsComponent from './components/LoanDetailsComponent';
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {Provider} from 'react-redux';
@@ -15,6 +16,7 @@ function App() {
           <Route path="login" element={<LoginComponent />} />
           <Route path="register" element={<RegisterComponent />} />
           <Route path="loanApp" element={<LoanComponent />} />
+          <Route path="loandetails" element={<LoanDetailsComponent />} />
           {/* <Route path="*" element={<NoPage />} /> */}
 
       </Routes> 
