@@ -27,7 +27,7 @@ const RegisterComponent = () => {
     <section>
       <div className="register">
         {submitRegister && <div>
-          <span>Registered successfully</span>
+          <span className="success-message">Registered successfully</span>
         </div>}
         <div className="col-1">
           <h2>Sign Up</h2>

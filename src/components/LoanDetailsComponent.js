@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import Header from './Header';
 
 const LoanDetailsComponent = () => {
     const loandetails = useSelector((state) => state.users.filter((e) => e.email === state.currentUser))[0];
@@ -13,10 +14,13 @@ const LoanDetailsComponent = () => {
       monthlyPayment=(((rateOfInterest/100)*(loandetails.loanDetails.loanAmount*100000))+(loandetails.loanDetails.loanAmount*100000))/(loandetails.loanDetails.duration*12)
     }
     return (<>
+    <Header /> 
+    <div className="register">
+
        {loandetails?.loanDetails  ?<>
         <h1>LoanDetails</h1>
-        <div>
-        <div>
+        <div className="loan-details">
+        <div >
             <label>Loan Applied on:</label>
            <span>{loandetails.loanDetails.applicationDate.getDate()}</span>
         </div>
@@ -69,8 +73,10 @@ const LoanDetailsComponent = () => {
             <label>Amount to be paid monthly:</label>
             <span>{Math.round(monthlyPayment)} </span>
         </div>
-        </div></>
-  :<h2>Account owner has not applied for any loan</h2>}  </>
+        </div>
+        
+        </>
+  :<h2>Account owner has not applied for any loan</h2>} </div> </>
     )
 }
 

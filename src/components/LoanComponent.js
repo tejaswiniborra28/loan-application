@@ -5,6 +5,7 @@ import { applyLoan } from "../redux/userActions";
 import Popup from 'reactjs-popup';
 import { AiFillQuestionCircle } from 'react-icons/ai';
 import { useNavigate } from "react-router-dom";
+import Header from './Header';
 
 const LoanComponent = () => {
     const [existingLoan, setExistingLoan] = useState(null);
@@ -23,7 +24,8 @@ const LoanComponent = () => {
         navigate("/loandetails");
 
     }
-    return (
+    return (<>
+            <Header />
         <section>
             <div className="register">
                 {
@@ -66,7 +68,7 @@ const LoanComponent = () => {
                                             name="AccType"
                                             value="Current"
                                             id="Current"
-                                        />{' '}
+                                            />{' '}
                                         Current
                                     </label>
                                     <div>
@@ -77,7 +79,7 @@ const LoanComponent = () => {
                                                 name="AccType"
                                                 value="Savings"
                                                 id="Savings"
-                                            />{' '}
+                                                />{' '}
                                             Savings
                                         </label>
                                     </div>
@@ -91,7 +93,7 @@ const LoanComponent = () => {
                                                 value="Others"
 
                                                 id="Others"
-                                            />
+                                                />
                                             Others
                                         </label>
                                     </div>
@@ -117,7 +119,7 @@ const LoanComponent = () => {
                                         const { Income } = getValues();
                                         return value <= Income * 3
                                     }
-
+                                    
                                 })} placeholder='Enter Loan Amount' />
                                 <span className='error'>{errors.loanAmount?.type === "required" && "*Loan amount is required"}</span>
                                 <span className='error'>{errors.loanAmount?.type === "validate" && `your are eligible for loan more than ${getValues().Income * 3}`}</span>
@@ -180,6 +182,7 @@ const LoanComponent = () => {
                 }
             </div >
         </section >
+                </>
     )
 }
 
