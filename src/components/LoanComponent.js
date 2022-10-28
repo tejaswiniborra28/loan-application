@@ -35,10 +35,10 @@ const LoanComponent = () => {
                     <div className="col-1">
                         <h2>Loan Application</h2>
 
-                        <form id='loanform' className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
+                        <form id='loanform' data-testid="form1" className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
                             <div>
                                 <label>Account Number:</label>
-                                <input name="accountNumber" {...register("accountNumber", {
+                                <input data-testid="account-number" name="accountNumber" {...register("accountNumber", {
                                     required: true, pattern: { value: /[0-9]{4}-[0-9]{4}-[0-9]{4}/i, message: "*please provide your 12 digit account number" }
                                 })} placeholder='Enter Account Number' />
                                 <Popup trigger={<a> <AiFillQuestionCircle /></a>}
@@ -56,7 +56,7 @@ const LoanComponent = () => {
 
                                 </Popup>
                                 <span className='error'>{errors.accountNumber?.type === "required" && "*Account Number is required"}</span>
-                                <span className='error'>{errors.accountNumber?.message} </span>
+                                <span  className='error'>{errors.accountNumber?.message} </span>
                             </div>
                             <div>
                                 <label>Account Type:</label>
@@ -114,7 +114,7 @@ const LoanComponent = () => {
                             </div>
                             <div>
                                 <label>Loan Amount:</label>
-                                <input name="loanAmount" {...register("loanAmount", {
+                                <input data-testid="loan-amount" name="loanAmount" {...register("loanAmount", {
                                     required: true, validate: (value) => {
                                         const { Income } = getValues();
                                         return value <= Income * 3
