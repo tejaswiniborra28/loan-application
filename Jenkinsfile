@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
         // stage('Test') {
@@ -17,9 +17,8 @@ pipeline {
         //         }
                 stage('Deliver') {
                             steps {
-                                sh './jenkins/scripts/deliver.sh'
-                                input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                                sh './jenkins/scripts/kill.sh'
+                                bat './jenkins/scripts/deliver.bat'
+                                bat './jenkins/scripts/kill.bat'
                             }
                         }
 
