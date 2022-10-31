@@ -7,17 +7,17 @@ pipeline {
                 bat 'npm install'
             }
         }
-        // stage('Test') {
-        //             steps {
-        //                 bat 'npm test'
-        //             }
-        //         }
-        //         stage('Deliver') {
-        //                     steps {
-        //                         bat './jenkins/scripts/deliver.bat'
+        stage('Test') {
+                    steps {
+                        bat 'npm test --verbose'
+                    }
+                }
+                stage('Deliver') {
+                            steps {
+                                bat './jenkins/scripts/deliver.bat'
                              
-        //                     }
-        //                 }
+                            }
+                        }
 
     }
 }
