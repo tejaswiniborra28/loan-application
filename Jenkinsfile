@@ -1,6 +1,9 @@
 pipeline {
     agent any
-    tools {nodejs "node"}
+    tools {nodejs "node"},
+     environment {
+            CI = 'true'
+        },
     stages {
         stage('Build') {
             steps {
@@ -9,7 +12,7 @@ pipeline {
         }
         stage('Test') {
                     steps {
-                        bat 'CI=true npm test --verbose'
+                        bat 'npm test --verbose'
                     }
                 }
                 stage('Deliver') {
