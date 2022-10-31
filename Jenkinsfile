@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
                     steps {
-                        bat 'npm test --verbose'
+                        bat 'CI=true npm test --verbose'
                     }
                 }
                 stage('Deliver') {
