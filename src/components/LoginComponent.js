@@ -13,12 +13,12 @@ const LoginComponent=()=> {
     const navigate = useNavigate();
     const { register, handleSubmit, watch, formState: { errors }, getValues } = useForm()
     const onSubmit = data => {
-        console.log(data);
+   
         dispatch(login(data))
 
     };
     useEffect(() => {
-        console.log("useeffect,validated", validated);
+       
         if (validated) {
             dispatch(updateCurrentUser(getValues().email));
             navigate("/loanApp")
@@ -75,12 +75,12 @@ const LoginComponent=()=> {
                         <span className='error'>{errors.password?.type === "required" && "*password is required"}</span>
                         <span className='error'>{errors.password?.message} </span>
                         
-                        <button className='btn' data-testid="btn">Login</button>
+                        <button className='btn-login' data-testid="btn">Login</button>
                         <div className='error'>{errors.email?.type === "validate" && "*if you are new user. Please register"}</div>
 
-                    <a>
+                    
                             <Link to="/register">Register here</Link>
-                        </a>
+                       
                     </form>
                     </div>
                 </div>

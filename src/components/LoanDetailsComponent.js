@@ -8,7 +8,7 @@ const LoanDetailsComponent = () => {
     let rateOfInterest;
     let monthlyPayment;
     if(loandetails?.loanDetails){
-        console.log("loan",)
+  
      loanpurpose = loandetails.loanDetails.purpose;
       rateOfInterest=loanpurpose === "Others" ? 10 : loanpurpose === "Car Loan" ? 7 : loanpurpose === "Home Loan" ? 8 : 10;
       monthlyPayment=(((rateOfInterest/100)*(loandetails.loanDetails.loanAmount*100000))+(loandetails.loanDetails.loanAmount*100000))/(loandetails.loanDetails.duration*12)

@@ -18,7 +18,7 @@ const LoanComponent = () => {
     const watchpurpose = watch("purpose");
 
     const onSubmit = (data, e) => {
-        console.log(data);
+       
         dispatch(applyLoan(data)); e.target.reset();
         setLoanSubmitted(true);
         navigate("/loandetails");

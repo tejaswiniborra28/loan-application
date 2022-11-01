@@ -15,7 +15,7 @@ const RegisterComponent = () => {
   const { register, handleSubmit, watch, formState: { errors }, getValues } = useForm();
   const dispatch = useDispatch()
   const onSubmit = (data, e) => {
-    console.log(registeredUsers);
+
     dispatch(registerUser(data));
     e.target.reset();
     setSubmitRegister(true);
@@ -165,10 +165,10 @@ const RegisterComponent = () => {
               <button className='btn' data-testid="btn-register">Register</button>
               <div className='error'>{errors.email?.type === "validate" && "*User already registered. Please login"}</div>
 
-                      <a>
+                    
 
                   <Link to="/login">Login here</Link>
-                      </a>
+                      
                 
             </div>
           </form>
