@@ -47,11 +47,11 @@ const RegisterComponent = () => {
 
               </div>
               <div className='row-1'>
-                 <div>
-                                    <input type="text" data-testid="username-test" {...register("username", { required: true, maxLength: 10 })} placeholder='username' />
-                                    <p className='error-para'>
-                                        <span className='error'>{errors.username?.type === "required" && "*user name is required"}</span>
-                                        <span className='error'>{errors.username?.type === "maxLength" && "*user name should ne exceed 10 characters"}</span> </p></div> 
+                <div>
+                  <input type="text" data-testid="username-test" {...register("username", { required: true, maxLength: 10 })} placeholder='username' />
+                  <p className='error-para'>
+                    <span className='error'>{errors.username?.type === "required" && "*user name is required"}</span>
+                    <span className='error'>{errors.username?.type === "maxLength" && "*user name should ne exceed 10 characters"}</span> </p></div>
                 <div>
                   <input data-testid="mobileno" name="mobile" {...register("mobile", { required: true, validate: (value) => isValidPhoneNumber(value) })} placeholder='mobile number' />
                   <p className='error-para'>
@@ -106,7 +106,7 @@ const RegisterComponent = () => {
                   <input type="password" data-testid="reg-pwd2" name="confirmpwd" {...register("confirmpwd", {
                     required: true, validate: (value) => {
                       const { password } = getValues();
-                      return password === value ;
+                      return password === value;
                     }
                   })} placeholder='confirm password' />
                   <p>
@@ -140,7 +140,7 @@ const RegisterComponent = () => {
               </div>
               <div className='row-1'>
                 <div>
-                  <select name="country" data-testid="country"  placeholder='select country' {...register('country')}>
+                  <select name="country" data-testid="country" placeholder='select country' {...register('country')}>
                     <option value="">select country</option>
                     <option value="india">India</option>
 
@@ -165,11 +165,11 @@ const RegisterComponent = () => {
               <button className='btn' data-testid="btn-register">Register</button>
               <div className='error'>{errors.email?.type === "validate" && "*User already registered. Please login"}</div>
 
-                    
 
-                  <Link to="/login">Login here</Link>
-                      
-                
+
+              <Link to="/login">Login here</Link>
+
+
             </div>
           </form>
 

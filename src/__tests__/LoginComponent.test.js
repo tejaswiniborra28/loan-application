@@ -74,18 +74,13 @@ describe("descibe2", () => {
     })
     test(" test for validation of password input", async () => {
 
-
-
-
         const { getByTestId } = render(<Provider store={store}>
             <BrowserRouter>
                 <LoginComponent />
             </BrowserRouter>
         </Provider>)
-
-
+        
         await act(async () => {
-
             fireEvent.change(getByTestId("email-input"), { target: { value: "tej@gmail" } })
             fireEvent.change(getByTestId("password-test"), { target: { value: "Tej@123@" } })
 
@@ -107,7 +102,7 @@ describe("new user", () => {
             return callback({
                 registeredUsers: ["tejaswini@gmail.com"],
                 users: [{
-                   
+
                 }],
                 validated: false
             })

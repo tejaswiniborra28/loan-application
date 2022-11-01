@@ -18,14 +18,14 @@ const LoanComponent = () => {
     const watchpurpose = watch("purpose");
 
     const onSubmit = (data, e) => {
-       
+
         dispatch(applyLoan(data)); e.target.reset();
         setLoanSubmitted(true);
         navigate("/loandetails");
 
     }
     return (<>
-            <Header />
+        <Header />
         <section>
             <div className="register">
                 {
@@ -56,7 +56,7 @@ const LoanComponent = () => {
 
                                 </Popup>
                                 <span className='error'>{errors.accountNumber?.type === "required" && "*Account Number is required"}</span>
-                                <span  className='error'>{errors.accountNumber?.message} </span>
+                                <span className='error'>{errors.accountNumber?.message} </span>
                             </div>
                             <div>
                                 <label>Account Type:</label>
@@ -68,7 +68,7 @@ const LoanComponent = () => {
                                             name="AccType"
                                             value="Current"
                                             id="Current"
-                                            />{' '}
+                                        />{' '}
                                         Current
                                     </label>
                                     <div>
@@ -79,7 +79,7 @@ const LoanComponent = () => {
                                                 name="AccType"
                                                 value="Savings"
                                                 id="Savings"
-                                                />{' '}
+                                            />{' '}
                                             Savings
                                         </label>
                                     </div>
@@ -93,7 +93,7 @@ const LoanComponent = () => {
                                                 value="Others"
 
                                                 id="Others"
-                                                />
+                                            />
                                             Others
                                         </label>
                                     </div>
@@ -119,7 +119,7 @@ const LoanComponent = () => {
                                         const { Income } = getValues();
                                         return value <= Income * 3
                                     }
-                                    
+
                                 })} placeholder='Enter Loan Amount' />
                                 <span className='error'>{errors.loanAmount?.type === "required" && "*Loan amount is required"}</span>
                                 <span className='error'>{errors.loanAmount?.type === "validate" && `you are not eligible for loan more than ${getValues().Income * 3}`}</span>
@@ -182,7 +182,7 @@ const LoanComponent = () => {
                 }
             </div >
         </section >
-                </>
+    </>
     )
 }
 

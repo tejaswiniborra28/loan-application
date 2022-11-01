@@ -38,7 +38,7 @@ describe("render loan details Component", () => {
                         purpose: "Others",
                         duration: 5,
                         rateOfInterest: 10,
-                        description:"applied loan"
+                        description: "applied loan"
                     }
 
                 }],
@@ -48,7 +48,7 @@ describe("render loan details Component", () => {
     })
     test(" test for validation of password input", async () => {
 
-   const { getByTestId } = render(<Provider store={store}>
+        const { getByTestId } = render(<Provider store={store}>
             <BrowserRouter>
                 <LoanDetailsComponent />
             </BrowserRouter>
@@ -82,7 +82,7 @@ describe("render component when  loan details are not present", () => {
     })
     test(" test for validation of password input", async () => {
 
-   const { getByTestId } = render(<Provider store={store}>
+        const { getByTestId } = render(<Provider store={store}>
             <BrowserRouter>
                 <LoanDetailsComponent />
             </BrowserRouter>
@@ -124,7 +124,7 @@ describe("render loan details Component for purpose car", () => {
     })
     test(" test for validation of password input", async () => {
 
-   const { getByTestId } = render(<Provider store={store}>
+        const { getByTestId } = render(<Provider store={store}>
             <BrowserRouter>
                 <LoanDetailsComponent />
             </BrowserRouter>
@@ -166,7 +166,7 @@ describe("render loan details Component for purpose home", () => {
     })
     test(" test for validation of password input", async () => {
 
-   const { getByTestId } = render(<Provider store={store}>
+        const { getByTestId } = render(<Provider store={store}>
             <BrowserRouter>
                 <LoanDetailsComponent />
             </BrowserRouter>
