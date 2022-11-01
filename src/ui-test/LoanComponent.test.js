@@ -1,5 +1,5 @@
 import React from "react";
-import { cleanup, render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, waitFor,fireEvent,act, cleanup } from '@testing-library/react';
 import LoanComponent from "../components/LoanComponent";
 import { Provider } from "react-redux";
 import store from '../redux/store';
@@ -40,44 +40,71 @@ test (" test for validation of email input", ()=>{
     expect(screen.getByTestId("loan-amount")).toHaveValue("1111");
     expect(screen.queryByTestId("error-msg")).not.toBeInTheDocument()
 
+    }
+)
 
-    // it("submits", () => {
-        // const onSubmit = jest.fn();
-        // const { getByTestId } = render(<Form  />);
-          const Abc= screen.getByTestId("btn")
-        fireEvent.click(Abc);
-        expect(onSubmit).toBeCalled();
-    //   });
-    
-// })
-// test (" test for validation of password input", ()=>{
-//     render(<Provider store={store}>
-//        <BrowserRouter>
-//         <LoanComponent />
-//         </BrowserRouter>
-//         </Provider>)
-//     const inputE3 = screen.getByTestId("password-test");
-//     expect(inputE3).toBeInTheDocument();
-//     expect(inputE3).toHaveAttribute("type", "password");
-//     const inputE4 = screen.getByTestId("password-test");
-//     userEvent.type(inputE4, "Any@2022");
- 
-//     expect(screen.getByTestId("password-test")).toHaveValue("Any@2022");
-//     expect(screen.queryByTestId("error-msg")).not.toBeInTheDocument()
-//     })
 
-//     test (" test for validation of password input", ()=>{
-//         render(<Provider store={store}>
-//            <BrowserRouter>
-//             <LoanComponent />
-//             </BrowserRouter>
-//             </Provider>)
-//     const btnIncrement = screen.getByTestId("btn");
-//     fireEvent.click(btnIncrement);
- 
-//     expect(screen.getByTestId("btn")).toHaveTextContent("Login");
 
-//     const register= screen.getByText("Register here")
-//     expect(register).toBeInTheDocument();
+test (" test for validation of input values for loan",async ()=>{
+
+    const mockfun=jest.fn()
+  const {getByTestId,getByRole }=render(<Provider store={store}><BrowserRouter><LoanComponent onSubmit={mockfun}/></BrowserRouter></Provider>);
+ await act(async ()=>{
+fireEvent.change(getByTestId("account-number"),{target:{value:"2222-1111-2222"}});
+// fireEvent.change(getByTestId("AccType-test"),{target:{value:"Savings"}})
+// const current = getByRole('radio', { id: 'Current' });
+// fireEvent.click(current)
+fireEvent.change(getByTestId("income-test"),{target:{value:20}})
+fireEvent.change(getByTestId("loan-amount"),{target:{value:50}})
+fireEvent.change(getByTestId("duration-test"),{target:{value:"5"}})
+fireEvent.change(getByTestId("purpose-test"),{target:{value:"Car Loan"}})
+
+ })
+ await act(async ()=>{
+  fireEvent.click(getByTestId("btn-loan"));
+   })
+   expect(mockfun).toHaveBeenCalled();
+
+
+
 })
 
+
+
+test (" test for error validation of input values for loan",async ()=>{
+
+    const mockfun=jest.fn()
+  const {getByTestId,getByRole }=render(<Provider store={store}><BrowserRouter><LoanComponent onSubmit={mockfun}/></BrowserRouter></Provider>);
+ await act(async ()=>{
+fireEvent.change(getByTestId("account-number"),{target:{value:""}});
+// fireEvent.change(getByTestId("AccType-test"),{target:{value:"Savings"}})
+// const current = getByRole('radio', { id: 'Current' });
+// fireEvent.click(current)
+fireEvent.change(getByTestId("income-test"),{target:{value:20}})
+fireEvent.change(getByTestId("loan-amount"),{target:{value:90}})
+fireEvent.change(getByTestId("purpose-test"),{target:{value:"Home Loan"}})
+
+ })
+ await act(async ()=>{
+  fireEvent.click(getByTestId("btn-loan"));
+   })
+   expect(mockfun).toHaveBeenCalled();
+
+
+
+})
+
+
+test (" test for error validation of input values for loan",async ()=>{
+
+    const mockfun=jest.fn()
+  const {getByTestId,getByRole }=render(<Provider store={store}><BrowserRouter><LoanComponent onSubmit={mockfun}/></BrowserRouter></Provider>);
+
+ await act(async ()=>{
+  fireEvent.click(getByTestId("btn-loan"));
+   })
+   expect(mockfun).toHaveBeenCalled();
+
+
+
+})

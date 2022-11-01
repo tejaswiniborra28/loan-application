@@ -62,7 +62,7 @@ const LoanComponent = () => {
                                 <label>Account Type:</label>
                                 <div >
                                     <label htmlFor="Current">
-                                        <input
+                                        <input data-testid="AccType-test"
                                             {...register('AccType', { required: true })}
                                             type="radio"
                                             name="AccType"
@@ -73,7 +73,7 @@ const LoanComponent = () => {
                                     </label>
                                     <div>
                                         <label htmlFor="Savings">
-                                            <input
+                                            <input data-testid="AccType-test"
                                                 {...register('AccType', { required: true })}
                                                 type="radio"
                                                 name="AccType"
@@ -86,7 +86,7 @@ const LoanComponent = () => {
 
                                     <div >
                                         <label htmlFor="Others">
-                                            <input
+                                            <input data-testid="AccType-test"
                                                 {...register('AccType', { required: true })}
                                                 type="radio"
                                                 name="AccType"
@@ -106,7 +106,7 @@ const LoanComponent = () => {
                             </div>
                             <div>
                                 <label>Annual Income:</label>
-                                <input name="Income" {...register("Income", {
+                                <input name="Income" data-testid="income-test" {...register("Income", {
                                     required: true,
                                 })} placeholder='Enter Annual Income' />
                                 <span className='error'>{errors.Income?.type === "required" && "*Income earned is required"}</span>
@@ -122,12 +122,12 @@ const LoanComponent = () => {
                                     
                                 })} placeholder='Enter Loan Amount' />
                                 <span className='error'>{errors.loanAmount?.type === "required" && "*Loan amount is required"}</span>
-                                <span className='error'>{errors.loanAmount?.type === "validate" && `your are eligible for loan more than ${getValues().Income * 3}`}</span>
+                                <span className='error'>{errors.loanAmount?.type === "validate" && `you are not eligible for loan more than ${getValues().Income * 3}`}</span>
 
                             </div>
                             <div>
                                 <label>Loan Duration:</label>
-                                <select name="duration" placeholder='Enter Loan Duration' {...register('duration')}>
+                                <select name="duration" data-testid="duration-test" placeholder='Enter Loan Duration' {...register('duration')}>
                                     <option value="5">5 years</option>
                                     <option value="10">10 years</option>
                                     <option value="15">15 years</option>
@@ -138,7 +138,7 @@ const LoanComponent = () => {
                             </div>
                             <div>
                                 <label>Loan Purpose:</label>
-                                <select name="purpose" placeholder='Select Loan Purpose ' {...register('purpose')}>
+                                <select name="purpose" data-testid="purpose-test" placeholder='Select Loan Purpose ' {...register('purpose')}>
                                     <option value="Others">Others</option>
                                     <option value="Car Loan">Car Loan</option>
                                     <option value="Home Loan">Home Loan</option>
@@ -150,7 +150,7 @@ const LoanComponent = () => {
                             {watchpurpose === "Others" &&
                                 <div>
                                     <label>Loan Purpose In detail:</label>
-                                    <input name="description" {...register("description", {
+                                    <input name="description" data-testid="description-test" {...register("description", {
                                         required: true,
                                     })} />
                                     <span className='error'>{errors.description?.type === "required" && "*Loan purpose is required"}</span>
@@ -159,7 +159,7 @@ const LoanComponent = () => {
 
                             <div>
                                 <label>Rate Of Interest:</label>
-                                <input name="RofI"
+                                <input name="RofI" data-testid="RofI-test"
                                     value={watchpurpose === "Others" ? "10" : watchpurpose === "Car Loan" ? "7" : watchpurpose === "Home Loan" ? "8" : "10"}
                                     {...register("RofI", {
                                         required: true,
@@ -168,7 +168,7 @@ const LoanComponent = () => {
 
 
 
-                            <button className='btn' data-testid="btn">Apply</button>
+                            <button className='btn' data-testid="btn-loan">Apply</button>
 
                         </form>
 

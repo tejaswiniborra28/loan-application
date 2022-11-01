@@ -156,8 +156,8 @@ test (" test for error validation of input values",async ()=>{
     const mockfun=jest.fn()
   const {getByTestId}=render(<Provider store={store}><BrowserRouter><RegisterComponent onSubmit={mockfun}/></BrowserRouter></Provider>);
  await act(async ()=>{
-fireEvent.change(getByTestId("first name"),{target:{value:""}});
-fireEvent.change(getByTestId("last name"),{target:{value:""}})
+fireEvent.change(getByTestId("first name"),{target:{value:"ggggggggggggggggggg"}});
+fireEvent.change(getByTestId("last name"),{target:{value:"hhhhhhhhhhhhhhhhhhhh"}})
 fireEvent.change(getByTestId("username-test"),{target:{value:"fffffffffffffffffffffff"}})
 fireEvent.change(getByTestId("mobileno"),{target:{value:9877}})
 fireEvent.change(getByTestId("reg-email"),{target:{value:"tej@gmail"}})
