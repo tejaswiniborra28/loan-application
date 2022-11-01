@@ -48,7 +48,7 @@ const RegisterComponent = () => {
               </div>
               <div className='row-1'>
                  <div>
-                                    <input type="text" {...register("username", { required: true, maxLength: 10 })} placeholder='username' />
+                                    <input type="text" data-testid="username-test" {...register("username", { required: true, maxLength: 10 })} placeholder='username' />
                                     <p className='error-para'>
                                         <span className='error'>{errors.username?.type === "required" && "*user name is required"}</span>
                                         <span className='error'>{errors.username?.type === "maxLength" && "*user name should ne exceed 10 characters"}</span> </p></div> 
@@ -162,7 +162,7 @@ const RegisterComponent = () => {
               </div>
             </div>
             <div className='registerbtn'>
-              <button className='btn' data-testid="btn">Register</button>
+              <button className='btn' data-testid="btn-register">Register</button>
               <div className='error'>{errors.email?.type === "validate" && "*User already registered. Please login"}</div>
 
                       <a>

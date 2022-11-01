@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Header from './Header';
+import Header from './HeaderComponent';
 
 const LoanDetailsComponent = () => {
     const loandetails = useSelector((state) => state.users.filter((e) => e.email === state.currentUser))[0];

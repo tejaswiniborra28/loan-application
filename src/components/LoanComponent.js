@@ -5,7 +5,7 @@ import { applyLoan } from "../redux/userActions";
 import Popup from 'reactjs-popup';
 import { AiFillQuestionCircle } from 'react-icons/ai';
 import { useNavigate } from "react-router-dom";
-import Header from './Header';
+import Header from './HeaderComponent';
 
 const LoanComponent = () => {
     const [existingLoan, setExistingLoan] = useState(null);
