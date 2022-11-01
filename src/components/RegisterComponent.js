@@ -106,7 +106,7 @@ const RegisterComponent = () => {
                   <input type="password" data-testid="reg-pwd2" name="confirmpwd" {...register("confirmpwd", {
                     required: true, validate: (value) => {
                       const { password } = getValues();
-                      return password === value || "Passwords should match!";
+                      return password === value ;
                     }
                   })} placeholder='confirm password' />
                   <p>

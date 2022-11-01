@@ -95,7 +95,7 @@ expect(inputE2).toHaveAttribute("name", "state");
 const inputE3 = screen.getByTestId("city");
 expect(inputE3).toBeInTheDocument();
 expect(inputE3).toHaveAttribute("name", "city");
-const btnRegister = screen.getByTestId("btn");
+const btnRegister = screen.getByTestId("btn-register");
 fireEvent.click(btnRegister);
  const abc= screen.getByTestId("submit")
 // const { getByText } = render(<Form onSubmit={onSubmit} />);
@@ -130,6 +130,48 @@ fireEvent.change(getByTestId("city"),{target:{value:"Hyederabad"}})
   fireEvent.click(getByTestId("btn-register"));
    })
    expect(mockfun).toHaveBeenCalled();
+
+
+
+})
+
+
+
+test (" test for validation of input values null",async ()=>{
+
+    const mockfun=jest.fn()
+  const {getByTestId}=render(<Provider store={store}><BrowserRouter><RegisterComponent onSubmit={mockfun}/></BrowserRouter></Provider>);
+ 
+ await act(async ()=>{
+  fireEvent.click(getByTestId("btn-register"));
+   })
+   expect(mockfun).toHaveBeenCalled();
+
+
+
+})
+
+test (" test for error validation of input values",async ()=>{
+
+    const mockfun=jest.fn()
+  const {getByTestId}=render(<Provider store={store}><BrowserRouter><RegisterComponent onSubmit={mockfun}/></BrowserRouter></Provider>);
+ await act(async ()=>{
+fireEvent.change(getByTestId("first name"),{target:{value:""}});
+fireEvent.change(getByTestId("last name"),{target:{value:""}})
+fireEvent.change(getByTestId("username-test"),{target:{value:"fffffffffffffffffffffff"}})
+fireEvent.change(getByTestId("mobileno"),{target:{value:9877}})
+fireEvent.change(getByTestId("reg-email"),{target:{value:"tej@gmail"}})
+fireEvent.change(getByTestId("reg-pwd"),{target:{value:"Tej@123"}})
+fireEvent.change(getByTestId("reg-pwd2"),{target:{value:"Tej@13@"}})
+fireEvent.change(getByTestId("reg-pan"),{target:{value:"ccccc56r"}})
+fireEvent.change(getByTestId("country"),{target:{value:""}})
+fireEvent.change(getByTestId("state"),{target:{value:"TELANGANA"}})
+fireEvent.change(getByTestId("city"),{target:{value:"Hyederabad"}})
+ })
+ await act(async ()=>{
+  fireEvent.click(getByTestId("btn-register"));
+   })
+   expect(mockfun).toHaveBeenCalled(0);
 
 
 
