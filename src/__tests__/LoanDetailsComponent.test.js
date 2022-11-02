@@ -1,4 +1,3 @@
-import React from "react";
 import { cleanup, render, screen, fireEvent } from "@testing-library/react";
 import LoanDetailsComponent from "../components/LoanDetailsComponent";
 import { Provider } from "react-redux";
@@ -7,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { act } from "react-dom/test-utils";
 import { useSelector, useDispatch } from 'react-redux';
 
-
+afterEach(cleanup)
 jest.mock("react-redux", () => ({
     ...jest.requireActual('react-redux'),
     useSelector: jest.fn(),

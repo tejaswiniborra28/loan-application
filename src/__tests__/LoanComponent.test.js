@@ -4,8 +4,7 @@ import LoanComponent from "../components/LoanComponent";
 import { Provider } from "react-redux";
 import store from '../redux/store';
 import { BrowserRouter } from "react-router-dom";
-import userEvent from '@testing-library/user-event';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 afterEach(cleanup)
 

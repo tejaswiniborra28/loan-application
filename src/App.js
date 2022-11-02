@@ -1,3 +1,4 @@
+import React from 'react';
 import LoginComponent from './components/LoginComponent';
 import RegisterComponent from './components/RegisterComponent';
 import LoanComponent from './components/LoanComponent';
