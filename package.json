@@ -23,7 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test  --env=jsdom --watchAll=false --coverage",
+    "test": "react-scripts test --runTestsByPath --env=jsdom --watchAll=false --testMatch **/src/**/*.test.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
