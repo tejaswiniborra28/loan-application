@@ -76,7 +76,7 @@ const LoanDetailsComponent = () => {
                 </div>
 
             </>
-                : <h2>Account owner has not applied for any loan</h2>} </div> </>
+                : <h2>Loan details are not available</h2>} </div> </>
     )
 }
 

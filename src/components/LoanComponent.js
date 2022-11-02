@@ -36,32 +36,40 @@ const LoanComponent = () => {
                         <h2>Loan Application</h2>
 
                         <form id='loanform' data-testid="form1" className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
-                            <div>
-                                <label>Account Number:</label>
-                                <input data-testid="account-number" name="accountNumber" {...register("accountNumber", {
-                                    required: true, pattern: { value: /[0-9]{4}-[0-9]{4}-[0-9]{4}/i, message: "*please provide your 12 digit account number" }
-                                })} placeholder='Enter Account Number' />
-                                <Popup trigger={<a> <AiFillQuestionCircle /></a>}
-                                    position="right center">
-                                    <div>Account Number criteria</div>
-                                    <ol>
-                                        <li>
-                                            Account number should be of format 2222-2222-2222
-                                        </li>
-                                        <li>
-                                            should be of length 12
-                                        </li>
+                            <div className="loan-field">
+                                <div>
+                                    <label>Account Number:</label>
+                                    <input data-testid="account-number" name="accountNumber" {...register("accountNumber", {
+                                        required: true, pattern: { value: /[0-9]{4}-[0-9]{4}-[0-9]{4}/i, message: "*please provide your 12 digit account number" }
+                                    })} placeholder='Enter Account Number' />
+                                    <Popup trigger={<a> <AiFillQuestionCircle /></a>}
+                                        position="right center">
+                                        <div>Account Number criteria</div>
+                                        <ol>
+                                            <li>
+                                                Account number should be of format 2222-2222-2222
+                                            </li>
+                                            <li>
+                                                should be of length 12
+                                            </li>
 
-                                    </ol>
+                                        </ol>
 
-                                </Popup>
-                                <span className='error'>{errors.accountNumber?.type === "required" && "*Account Number is required"}</span>
-                                <span className='error'>{errors.accountNumber?.message} </span>
+                                    </Popup>
+
+                                </div>
+                                <div>
+                                    <span className='error'>{errors.accountNumber?.type === "required" && "*Account Number is required"}</span>
+                                    <span className='error'>{errors.accountNumber?.message} </span>
+
+                                </div>
                             </div>
-                            <div>
-                                <label>Account Type:</label>
-                                <div >
-                                    <label htmlFor="Current">
+                            <div className="loan-field">
+                                <div>
+                                    <label>Account Type:</label>
+
+                                    <div >
+
                                         <input data-testid="AccType-test"
                                             {...register('AccType', { required: true })}
                                             type="radio"
@@ -70,100 +78,115 @@ const LoanComponent = () => {
                                             id="Current"
                                         />{' '}
                                         Current
-                                    </label>
+                                    </div>
+
                                     <div>
-                                        <label htmlFor="Savings">
-                                            <input data-testid="AccType-test"
-                                                {...register('AccType', { required: true })}
-                                                type="radio"
-                                                name="AccType"
-                                                value="Savings"
-                                                id="Savings"
-                                            />{' '}
-                                            Savings
-                                        </label>
+
+                                        <input data-testid="AccType-test"
+                                            {...register('AccType', { required: true })}
+                                            type="radio"
+                                            name="AccType"
+                                            value="Savings"
+                                            id="Savings"
+                                        />{' '}
+                                        Savings
+
                                     </div>
 
                                     <div >
-                                        <label htmlFor="Others">
-                                            <input data-testid="AccType-test"
-                                                {...register('AccType', { required: true })}
-                                                type="radio"
-                                                name="AccType"
-                                                value="Others"
 
-                                                id="Others"
-                                            />
-                                            Others
-                                        </label>
-                                    </div>
+                                        <input data-testid="AccType-test"
+                                            {...register('AccType', { required: true })}
+                                            type="radio"
+                                            name="AccType"
+                                            value="Others"
 
-                                    <div className="error">
-                                        {errors.AccType?.type === 'required' && '*Account is required'}
+                                            id="Others"
+                                        />
+                                        Others
+
                                     </div>
                                 </div>
 
-                            </div>
-                            <div>
-                                <label>Annual Income:</label>
-                                <input name="Income" data-testid="income-test" {...register("Income", {
-                                    required: true,
-                                })} placeholder='Enter Annual Income' />
-                                <span className='error'>{errors.Income?.type === "required" && "*Income earned is required"}</span>
+                                <div className="error">
+                                    {errors.AccType?.type === 'required' && '*Account is required'}
+                                </div>
+
 
                             </div>
-                            <div>
-                                <label>Loan Amount:</label>
-                                <input data-testid="loan-amount" name="loanAmount" {...register("loanAmount", {
-                                    required: true, validate: (value) => {
-                                        const { Income } = getValues();
-                                        return value <= Income * 3
-                                    }
-
-                                })} placeholder='Enter Loan Amount' />
-                                <span className='error'>{errors.loanAmount?.type === "required" && "*Loan amount is required"}</span>
-                                <span className='error'>{errors.loanAmount?.type === "validate" && `you are not eligible for loan more than ${getValues().Income * 3}`}</span>
-
+                            <div className="loan-field">
+                                <div>
+                                    <label>Annual Income:</label>
+                                    <input name="Income" data-testid="income-test" {...register("Income", {
+                                        required: true,
+                                    })} placeholder='Enter Annual Income' />
+                                </div><div>
+                                    <span className='error'>{errors.Income?.type === "required" && "*Income earned is required"}</span>
+                                </div>
                             </div>
-                            <div>
-                                <label>Loan Duration:</label>
-                                <select name="duration" data-testid="duration-test" placeholder='Enter Loan Duration' {...register('duration')}>
-                                    <option value="5">5 years</option>
-                                    <option value="10">10 years</option>
-                                    <option value="15">15 years</option>
-                                    <option value="20">20 years</option>
-                                </select>
-                                <span className='error'>{errors.duration?.type === "required" && "*Loan duration is required"}</span>
+                            <div className="loan-field">
+                                <div>
+                                    <label>Loan Amount:</label>
+                                    <input data-testid="loan-amount" name="loanAmount" {...register("loanAmount", {
+                                        required: true, validate: (value) => {
+                                            const { Income } = getValues();
+                                            return value <= Income * 3
+                                        }
 
+                                    })} placeholder='Enter Loan Amount' />
+                                </div><div>
+                                    <span className='error'>{errors.loanAmount?.type === "required" && "*Loan amount is required"}</span>
+                                    <span className='error'>{errors.loanAmount?.type === "validate" && `you are not eligible for loan more than ${getValues().Income * 3}`}</span>
+                                </div>
                             </div>
-                            <div>
-                                <label>Loan Purpose:</label>
-                                <select name="purpose" data-testid="purpose-test" placeholder='Select Loan Purpose ' {...register('purpose')}>
-                                    <option value="Others">Others</option>
-                                    <option value="Car Loan">Car Loan</option>
-                                    <option value="Home Loan">Home Loan</option>
-                                    <option value="Bussiness">Bussiness</option>
-                                </select>
-                                <span className='error'>{errors.purpose?.type === "required" && "*Loan purpose is required"}</span>
-
+                            <div className="loan-field">
+                                <div>
+                                    <label>Loan Duration:</label>
+                                    <select name="duration" data-testid="duration-test" placeholder='Enter Loan Duration' {...register('duration')}>
+                                        <option value="5">5 years</option>
+                                        <option value="10">10 years</option>
+                                        <option value="15">15 years</option>
+                                        <option value="20">20 years</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <span className='error'>{errors.duration?.type === "required" && "*Loan duration is required"}</span>
+                                </div>
+                            </div>
+                            <div className="loan-field">
+                                <div>
+                                    <label>Loan Purpose:</label>
+                                    <select name="purpose" data-testid="purpose-test" placeholder='Select Loan Purpose ' {...register('purpose')}>
+                                        <option value="Others">Others</option>
+                                        <option value="Car Loan">Car Loan</option>
+                                        <option value="Home Loan">Home Loan</option>
+                                        <option value="Bussiness">Bussiness</option>
+                                    </select>
+                                </div> <div>
+                                    <span className='error'>{errors.purpose?.type === "required" && "*Loan purpose is required"}</span>
+                                </div>
                             </div>
                             {watchpurpose === "Others" &&
-                                <div>
-                                    <label>Loan Purpose In detail:</label>
-                                    <input name="description" data-testid="description-test" {...register("description", {
-                                        required: true,
-                                    })} />
-                                    <span className='error'>{errors.description?.type === "required" && "*Loan purpose is required"}</span>
-
+                                <div className="loan-field">
+                                    <div>
+                                        <label>Loan Purpose In detail:</label>
+                                        <input name="description" data-testid="description-test" {...register("description", {
+                                            required: true,
+                                        })} />
+                                    </div>
+                                    <div>
+                                        <span className='error'>{errors.description?.type === "required" && "*Loan purpose is required"}</span>
+                                    </div>
                                 </div>}
 
-                            <div>
-                                <label>Rate Of Interest:</label>
-                                <input name="RofI" data-testid="RofI-test"
-                                    value={watchpurpose === "Others" ? "10" : watchpurpose === "Car Loan" ? "7" : watchpurpose === "Home Loan" ? "8" : "10"}
-                                    {...register("RofI", {
-                                        required: true,
-                                    })} />
+                            <div className="loan-field">
+                                <div>
+                                    <label>Rate Of Interest:</label>
+                                    <input name="RofI" data-testid="RofI-test"
+                                        value={watchpurpose === "Others" ? "10" : watchpurpose === "Car Loan" ? "7" : watchpurpose === "Home Loan" ? "8" : "10"}
+                                        {...register("RofI", {
+                                            required: true,
+                                        })} /> </div>
                             </div>
 
 

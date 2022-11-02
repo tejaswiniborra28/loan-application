@@ -150,13 +150,13 @@ const RegisterComponent = () => {
                   <select name="state" data-testid="state" placeholder='select state'{...register('state')}>
                     <option value="0">select state</option>
                     {stateData.data.map(e =>
-                      <option value={e.id}>{e.state}</option>)}
+                      <option key={e.id} value={e.id}>{e.state}</option>)}
 
                   </select></div>
                 <div>
                   <select name="city" data-testid="city" placeholder='select city' {...register('city')}>
                     <option value="">select city</option>
-                    {stateData.data.filter(ed => ed.id === watch('state'))[0]?.cities.map((e, index) => <option value={e}>{e}</option>)}
+                    {stateData.data.filter(ed => ed.id === watch('state'))[0]?.cities.map((e, index) => <option key={index} value={e}>{e}</option>)}
                   </select>
                 </div>
               </div>

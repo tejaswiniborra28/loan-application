@@ -230,12 +230,13 @@ a {
 
   
 }
-
+/* 
 #loanform div {
   display:flex;
+ 
   justify-content: center;
   align-items: center;
-}
+} */
 
 #loanform .btn {
   background-color: #003049;
@@ -262,7 +263,13 @@ a {
   border-radius: 5px;
 
 }
-
+.header-logo{
+display:flex;
+gap: 1rem;
+}
+.header-logo .logo{
+  cursor: pointer;
+  }
 .loan-details {
   display: flex;
   flex-direction: column;
@@ -274,4 +281,22 @@ a {
   justify-content:space-between;
   align-items: center;
   gap:1rem;
+}
+
+.loan-field{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:1rem;
+}
+
+.loan-field div{
+  display: flex;
+
+  
+}
+
+.loan-filed-actype{
+  display: flex;
+
 }
