@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "set \"CI=false\" && react-scripts build",
     "test": "react-scripts test --runTestsByPath --env=jsdom --watchAll=false --testMatch **/src/**/*.test.js --coverage",
     "eject": "react-scripts eject"
   },
