@@ -8,21 +8,32 @@
     "@testing-library/user-event": "^14.4.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "^5.0.1",
+    "react-hook-form": "^7.38.0",
+    "react-icons": "^4.6.0",
+    "react-phone-number-input": "^3.2.11",
+    "react-redux": "^8.0.4",
+    "react-router-dom": "^6.4.2",
+    "react-scripts": "5.0.1",
+    "reactjs-popup": "^2.0.5",
+    "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-logger": "^3.0.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --runTestsByPath --env=jsdom --watchAll=false --testMatch **/src/**/*.test.js",
+    "build": "set \"CI=false\" && react-scripts build",
+    "test": "react-scripts test --runTestsByPath --env=jsdom --watchAll=false --testMatch **/src/**/*.test.js --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
- 
+
   },
   "jest": {
-    "testMatch": [
-      "<rootDir>/src/__tests__/*.test.js"
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/redux/",
+      "<rootDir>/src/reportWebVitals.js",
+      "<rootDir>/src/index.js"
     ]
   },
   "browserslist": {
