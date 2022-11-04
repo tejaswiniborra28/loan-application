@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "playwright": "^1.27.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.38.0",
@@ -22,13 +23,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "test:e2e": "playwright test  .spec.js ",
     "build": "set \"CI=false\" && react-scripts build",
     "test": "react-scripts test --runTestsByPath --env=jsdom --watchAll=false --testMatch **/src/**/*.test.js --coverage",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-
-  },
+  "eslintConfig": {},
   "jest": {
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/redux/",
@@ -47,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.27.1"
   }
 }
