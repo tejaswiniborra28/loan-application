@@ -70,7 +70,7 @@ const LoanComponent = () => {
 
                                     <div >
 
-                                        <input data-testid="AccType-test"
+                                        <input data-testid="AccType-test1"
                                             {...register('AccType', { required: true })}
                                             type="radio"
                                             name="AccType"
