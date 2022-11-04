@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Header from './HeaderComponent';
+import HeaderComponent from './HeaderComponent';
 
 const LoanDetailsComponent = () => {
     const loandetails = useSelector((state) => state.users.filter((e) => e.email === state.currentUser))[0];
-    let loanpurpose;
-    let rateOfInterest;
-    let monthlyPayment;
+    let loanpurpose=null;
+    let rateOfInterest=null;
+    let monthlyPayment=null;
     if (loandetails?.loanDetails) {
 
         loanpurpose = loandetails.loanDetails.purpose;
@@ -14,7 +14,7 @@ const LoanDetailsComponent = () => {
         monthlyPayment = (((rateOfInterest / 100) * (loandetails.loanDetails.loanAmount * 100000)) + (loandetails.loanDetails.loanAmount * 100000)) / (loandetails.loanDetails.duration * 12)
     }
     return (<>
-        <Header />
+        <HeaderComponent />
         <div className="register">
 
             {loandetails?.loanDetails ? <>

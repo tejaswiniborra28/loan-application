@@ -1,11 +1,9 @@
-import React from "react";
-import { render, screen, waitFor, fireEvent, act, cleanup } from '@testing-library/react';
+import { render, fireEvent, act, cleanup } from '@testing-library/react';
 import RegisterComponent from "../components/RegisterComponent";
 import { Provider } from "react-redux";
 import store from '../redux/store';
 import { BrowserRouter } from "react-router-dom";
-import userEvent from '@testing-library/user-event';
-import { useSelector } from 'react-redux';
+
 
 afterEach(cleanup)
 
