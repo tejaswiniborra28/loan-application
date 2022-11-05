@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    tools {nodejs "node"},
+    tools {nodejs "node"}
     environment {
     HEROKU_API_KEY = credentials('heroku-api-key')
     }
