@@ -26,7 +26,8 @@
     "test:e2e": "playwright test  .spec.js ",
     "build": "set \"CI=false\" && react-scripts build",
     "test": "react-scripts test --runTestsByPath --env=jsdom --watchAll=false --testMatch **/src/**/*.test.js --coverage",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "compile": "npm run build && cd build && jar -cvf web.war ."
   },
   "eslintConfig": {},
   "jest": {
