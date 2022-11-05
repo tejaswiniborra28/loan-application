@@ -23,7 +23,7 @@ pipeline {
                         }
                          stage('Herku login') {
                               steps {
-                                bat 'echo $HEROKU_API_KEY | npx Heroku login'
+                                bat 'echo $HEROKU_API_KEY | npm run login'
                               }
                         }
                                        stage('Push to Heroku registry') {

@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "heroku": "^7.65.0",
     "playwright": "^1.27.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -27,7 +28,8 @@
     "build": "set \"CI=false\" && react-scripts build",
     "test": "react-scripts test --runTestsByPath --env=jsdom --watchAll=false --testMatch **/src/**/*.test.js --coverage",
     "eject": "react-scripts eject",
-    "compile": "npm run build && cd build && jar -cvf web.war ."
+    "compile": "npm run build && cd build && jar -cvf web.war .",
+    "login":"heroku login"
   },
   "eslintConfig": {},
   "jest": {
