@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {nodejs "node"}
     environment {
-    HEROKU_API_KEY = credentials('heroku-api-key')
+    Heroku-Cred = credentials('Heroku-cred')
     }
     stages {
         stage('Build') {
@@ -23,7 +23,7 @@ pipeline {
                         }
                          stage('Herku login') {
                               steps {
-                                bat 'echo $HEROKU_API_KEY | npm run login'
+                                bat 'echo $Heroku-Cred | npm run login'
                               }
                         }
                                        stage('Push to Heroku registry') {
