@@ -26,6 +26,12 @@ pipeline {
                                 bat 'echo $HEROKU_API_KEY | Heroku login --username=tejaswiniborra28@gmail.com --password=Tej@123@'
                               }
                         }
+                                       stage('Push to Heroku registry') {
+                                                    steps {
+                                                   bat 'git push https://git.heroku.com/bms-loan.git master'
+       
+                                                }
+                                            }
 
     }
 }
