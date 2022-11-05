@@ -23,7 +23,7 @@ pipeline {
                         }
                          stage('Herku login') {
                               steps {
-                                bat 'echo $HEROKU_API_KEY | Heroku login --username=tejaswiniborra28@gmail.com --password=Tej@123@'
+                                bat 'echo $HEROKU_API_KEY | npx Heroku login'
                               }
                         }
                                        stage('Push to Heroku registry') {
