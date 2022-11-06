@@ -3,6 +3,4 @@ import App from "../App";
 
 test('renders  App component', () => {
     render(<App />);
-
   });
-  
