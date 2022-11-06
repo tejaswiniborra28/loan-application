@@ -1,10 +1,6 @@
 pipeline {
     agent any
     tools {nodejs "node"}
-    // environment {
-    // HEROKU_API_KEY = credentials('heroku-api-key');\
-    // heroku-email= credentials('heroku-email')
-    // }
     stages {
         stage('Build') {
             steps {
@@ -22,7 +18,7 @@ pipeline {
                              
                             }
                         }
-                         stage('Herku login') {
+                         stage('Herku deploy') {
                               steps {
                                 bat 'git push https://heroku:40002b15-46c5-458c-86d7-dcbacd86192b@git.heroku.com/bms-loan.git HEAD:BMS-1'
                               }
