@@ -53,7 +53,7 @@ const LoginComponent = () => {
                         <span className='error'>{errors.password?.type === "required" && "*password is required"}</span>
                         <span className='error'>{errors.password?.message} </span>
 
-                        <button className='btn' data-testid="btn">LoginIN</button>
+                        <button className='btn' data-testid="btn">Login</button>
                         <div className='error'>{errors.email?.type === "validate" && "*if you are new user. Please register"}</div>
 
 

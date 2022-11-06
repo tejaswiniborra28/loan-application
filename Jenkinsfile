@@ -18,17 +18,11 @@ pipeline {
                              
                             }
                         }
-                         stage('Herku deploy') {
+                         stage('Heroku deployment') {
                               steps {
                                 bat 'git push https://heroku:40002b15-46c5-458c-86d7-dcbacd86192b@git.heroku.com/bms-loan.git HEAD:master'
                               }
                         }
-                                    //    stage('Push to Heroku registry') {
-                                    //                 steps {
-                                    //                bat 'git push https://git.heroku.com/bms-loan.git master'
-       
-                                    //             }
-                                    //         }
 
     }
 }
