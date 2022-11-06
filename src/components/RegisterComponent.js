@@ -13,6 +13,7 @@ const RegisterComponent = () => {
   const [submitRegister, setSubmitRegister] = useState(false)
   const registeredUsers = useSelector((state) => state.registeredUsers)
   const { register, handleSubmit, watch, formState: { errors }, getValues } = useForm();
+
   const dispatch = useDispatch()
   const onSubmit = (data, e) => {
 
@@ -20,13 +21,13 @@ const RegisterComponent = () => {
     e.target.reset();
     setSubmitRegister(true);
 
-  }
 
+  }
 
   return (
     <section>
-      <div className="register">
-        {submitRegister && <div>
+      <div className="register register1">
+        {submitRegister && <div>   
           <span className="success-message">Registered successfully</span>
         </div>}
         <div className="col-1">
@@ -163,14 +164,15 @@ const RegisterComponent = () => {
             </div>
             <div className='registerbtn'>
               <button className='btn' data-testid="btn-register">Register</button>
+              </div>
               <div className='error'>{errors.email?.type === "validate" && "*User already registered. Please login"}</div>
 
+              
+
+              <div className="register-here"> <Link to="/login">Login here</Link></div>
 
 
-              <Link to="/login">Login here</Link>
-
-
-            </div>
+           
           </form>
 
         </div>

@@ -1,22 +1,24 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 
 export default function Header() {
     const navigate = useNavigate();
     return (
         <div className="header">
             <div className="header-logo">
-             <div className="logo" data-testid="loan-details" onClick={()=> navigate("/loandetails")}>
-                Loan Details
+            <div className="logo" data-testid="loan-details" >
+              <Link to="/loandetails">Loan Details</Link>  
             </div>
             <div className="logo" data-testid="apply-loan" onClick={()=> navigate("/loanApp")}>
-                Apply Loan
+              <Link to="/loanApp">  Apply Loan</Link>
             </div>
+          
             </div>
             <div className="logo">
                 Loan Application
             </div>
-            <div className="sign-out btn" data-testid="sign-out" onClick={()=> navigate("/login")}>Sign out</div>
+            <div className="btn" data-testid="sign-out"><Link onClick={()=>window.location.href = '/'}>Sign out</Link></div>
+           
         </div>
     )
 }

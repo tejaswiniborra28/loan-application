@@ -18,11 +18,11 @@ const LoanDetailsComponent = () => {
         <div className="register">
 
             {loandetails?.loanDetails ? <>
-                <h1>LoanDetails</h1>
+                <h2 className='head-loan'>LoanDetails</h2>
                 <div className="loan-details">
-                    <div >
+                    <div  >
                         <label>Loan Applied on:</label>
-                        <span>{loandetails.loanDetails.applicationDate.getDate()}</span>
+                        <span>{loandetails.loanDetails.applicationDate.toLocaleDateString('en-CA')}</span>
                     </div>
                     <div>
                         <label>Applied By:</label>
@@ -58,7 +58,7 @@ const LoanDetailsComponent = () => {
                     </div>
                     <div>
                         <label>Loan Duration:</label>
-                        <span> value={loandetails.loanDetails.duration + " years"} </span>
+                        <span> {loandetails.loanDetails.duration + " years"} </span>
                     </div>
                     {loandetails.loanDetails.description && <div>
                         <label>Loan Purpose in Detail:</label>

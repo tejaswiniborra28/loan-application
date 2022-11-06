@@ -2,7 +2,7 @@ import React from 'react'
 
 const NoPageComponent = () => {
   return (
-    <div>Error please access correct URL</div>
+    <div className='error-page'>Error please access correct URL</div>
   )
 }
 
