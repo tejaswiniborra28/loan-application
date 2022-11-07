@@ -126,7 +126,7 @@ const LoanComponent = () => {
                                     <div className='input-loan'>
                                     <input name="Income" data-testid="income-test" {...register("Income", {
                                         required: true,
-                                    })} placeholder='Enter Annual Income' /></div>
+                                    })} placeholder='Enter Annual Income in Lakhs' /></div>
                                 </div><div>
                                     <span className='error'>{errors.Income?.type === "required" && "*Income earned is required"}</span>
                                 </div>
@@ -141,7 +141,7 @@ const LoanComponent = () => {
                                             return value <= Income * 3
                                         }
 
-                                    })} placeholder='Enter Loan Amount' /> </div>
+                                    })} placeholder='Enter Loan Amount in Lakhs' /> </div>
                                 </div><div>
                                     <span className='error'>{errors.loanAmount?.type === "required" && "*Loan amount is required"}</span>
                                     <span className='error'>{errors.loanAmount?.type === "validate" && `you are not eligible for loan more than ${getValues().Income * 3}`}</span>
