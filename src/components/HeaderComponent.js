@@ -1,8 +1,16 @@
 import React from "react";
 import { useNavigate,Link } from "react-router-dom";
+import {  useDispatch } from 'react-redux';
+import { logout } from "../redux/userActions";
 
 export default function Header() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const logoutFunc=(e)=>{
+       e.preventDefault();
+      dispatch(logout())
+      navigate("/login" )
+    }
     return (
         <div className="header">
             <div className="header-logo">
@@ -17,7 +25,7 @@ export default function Header() {
             <div className="logo">
                 Loan Application
             </div>
-            <div className="btn" data-testid="sign-out"><Link onClick={()=>window.location.href = '/'}>Sign out</Link></div>
+            <div className="btn" data-testid="sign-out"><Link onClick={logoutFunc}>Sign out</Link></div>
            
         </div>
     )

@@ -3,16 +3,16 @@
     "data": [
         {
             "id":"1",
-            "state": "ANDHRA PRADESH",
+            "state": "AndhraPradesh",
             "cities": [
                 "Bhimavaram",
                 "Vijayawada",
-                "Visakhapatnam"
+                "Vishakapatnam"
             ]
         },
         {
             "id": "2",
-            "state": "TELANGANA",
+            "state": "Telangana",
             "cities": ["Hyederabad","Adilabad","Nizamabad"]
         }
     ]
