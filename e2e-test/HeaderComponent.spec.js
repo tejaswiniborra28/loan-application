@@ -1,8 +1,10 @@
+import { getBaseUrl } from "./utils";
 // @ts-check
 const { test, expect } = require("@playwright/test");
 
 test("test for header ", async ({ page }) => {
-  await page.goto("http://localhost:3000/loanApp");
+  // await page.goto("http://localhost:3000/loanApp");
+  await page.goto(`${getBaseUrl()}/loanApp`);
 
   const loanDetailsButton = page.getByText("Loan Details");
 

@@ -12,17 +12,22 @@ pipeline {
                         bat 'npm test --verbose'
                     }
                 }
-                stage('Deliver') {
-                            steps {
-                                bat './jenkins/scripts/deliver.bat'
-                             
+                 stage('e2eTest') {
+                    steps {
+                        bat 'npm run test:e2e'
+                    }
+                }
+                    stage('Deliver') {
+                                steps {
+                                    bat './jenkins/scripts/deliver.bat'
+                                
+                                }
                             }
-                        }
-                         stage('Heroku deployment') {
-                              steps {
-                                bat 'git push https://heroku:40002b15-46c5-458c-86d7-dcbacd86192b@git.heroku.com/bms-loan.git HEAD:master'
-                              }
-                        }
+                        //  stage('Heroku deployment') {
+                        //       steps {
+                        //         bat 'git push https://heroku:40002b15-46c5-458c-86d7-dcbacd86192b@git.heroku.com/bms-loan.git HEAD:master'
+                        //       }
+                        // }
 
     }
 }
