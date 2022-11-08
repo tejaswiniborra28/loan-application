@@ -19,7 +19,7 @@ pipeline {
                 }
                     stage('Deliver') {
                                 steps {
-                                    bat './jenkins/scripts/deliver.bat'
+                                    bat 'npm run compile'
                                 
                                 }
                             }
