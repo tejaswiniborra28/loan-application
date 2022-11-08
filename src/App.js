@@ -12,7 +12,7 @@ import store from './redux/store';
 function App() {
   return ( <Provider store={store}>
     <div className="App">
-     <BrowserRouter>
+     <BrowserRouter basename="/loan-application">
       <Routes>
           <Route path="/" element={<LoginComponent />}/>
           <Route path="login" element={<LoginComponent />} />
