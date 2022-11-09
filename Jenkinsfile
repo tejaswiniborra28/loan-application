@@ -1,6 +1,10 @@
 pipeline {
     agent any
     tools {nodejs "node"}
+    environment {
+     TOMCATWEB ="C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps"
+
+     }
     stages {
         stage('Build') {
             steps {
@@ -12,17 +16,29 @@ pipeline {
                         bat 'npm test --verbose'
                     }
                 }
-                stage('Deliver') {
-                            steps {
-                                bat './jenkins/scripts/deliver.bat'
-                             
+                //  stage('e2eTest') {
+                //     steps {
+                //         bat 'npx run test:e2e'
+                //     }
+                // }
+                    stage('Deliver') {
+                                steps {
+                                    bat 'npm run compile'
+                                
+                                }
                             }
-                        }
-                         stage('Heroku deployment') {
-                              steps {
-                                bat 'git push https://heroku:40002b15-46c5-458c-86d7-dcbacd86192b@git.heroku.com/bms-loan.git HEAD:master'
-                              }
-                        }
+                            stage('Deploy to server') {
+                            steps {
+                                   deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://localhost:8090/')], contextPath: 'loan-application', onFailure: false, war: '**/*.war'
+                                
+                                }
+                            }
+
+                        //  stage('Heroku deployment') {
+                        //       steps {
+                        //         bat 'git push https://heroku:40002b15-46c5-458c-86d7-dcbacd86192b@git.heroku.com/bms-loan.git HEAD:master'
+                        //       }
+                        // }
 
     }
 }

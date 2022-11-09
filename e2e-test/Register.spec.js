@@ -1,6 +1,7 @@
+const { getBaseUrl } = require("./utils");
 const { test, expect } = require("@playwright/test");
-test("Test for registration page", async ({ page }) => {
-  await page.goto("http://localhost:3000/register");
+test("Test for registration page", async ({ page,baseURL  }) => {
+  await page.goto(`${getBaseUrl()}/loan-application/register`);
 
   const firstNameInput = page.getByTestId("first name");
   await firstNameInput.fill("AAAAAA");

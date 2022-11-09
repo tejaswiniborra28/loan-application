@@ -2,6 +2,7 @@
   "name": "myapp",
   "version": "0.1.0",
   "private": true,
+  "homepage": "loan-application",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -24,8 +25,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "test:e2e": "playwright test  .spec.js ",
-    "build": "set \"CI=false\" && react-scripts build",
+    "test:e2e": "playwright test  .spec.js --workers=20%  ",
+    "build": "set \"CI=false\" && react-scripts build && cd build && jar -cvf web.war .",
     "test": "react-scripts test --runTestsByPath --env=jsdom --watchAll=false --testMatch **/src/**/*.test.js --coverage",
     "eject": "react-scripts eject",
     "compile": "npm run build && cd build && jar -cvf web.war .",
