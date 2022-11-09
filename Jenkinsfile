@@ -29,7 +29,7 @@ pipeline {
                             }
                             stage('Deploy to server') {
                             steps {
-                                    bat "copy build\\web.war \"${TOMCATWEB}\\loan-application\""
+                                   deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://localhost:8090/')], contextPath: 'loan-application', onFailure: false, war: '**/*.war'
                                 
                                 }
                             }
