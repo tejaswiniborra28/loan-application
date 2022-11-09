@@ -18,9 +18,9 @@ pipeline {
                              
                             }
                         }
-                         stage('Heroku deployment') {
+                         stage('Deploy to server') {
                               steps {
-                                bat 'git push https://heroku:40002b15-46c5-458c-86d7-dcbacd86192b@git.heroku.com/loan-appl-production.git HEAD:refs/heads/master'
+                                   deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://localhost:8094/')], contextPath: 'loan-application', onFailure: false, war: '**/*.war'
                               }
                         }
 
