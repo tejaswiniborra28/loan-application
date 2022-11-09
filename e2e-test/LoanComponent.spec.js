@@ -1,9 +1,9 @@
-import { getBaseUrl } from "./utils";
+const { getBaseUrl } = require("./utils");
 const { test, expect } = require("@playwright/test");
 
 test("test for apply loan page", async ({ page }) => {
   // await page.goto("http://localhost:3000/loanApp");
-  await page.goto(`${getBaseUrl()}/loanApp`);
+  await page.goto(`${getBaseUrl()}/loan-application/loanApp`);
 
 
   const firstNameInput = page.getByTestId("account-number");

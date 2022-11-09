@@ -1,10 +1,10 @@
-import { getBaseUrl } from "./utils";
+const { getBaseUrl } = require("./utils");
 // @ts-check
 const { test, expect } = require("@playwright/test");
 //  let screenshotPath= './screenshots/loginpage'
 //  let screenshotPath2= './screenshots/Registerpage'
 test("test for Log in Page", async ({ page }) => {
-  await page.goto(`${getBaseUrl()}`);
+  await page.goto(`${getBaseUrl()}/loan-application`);
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Loan Application/);

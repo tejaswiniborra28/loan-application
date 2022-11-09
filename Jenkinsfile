@@ -12,11 +12,11 @@ pipeline {
                         bat 'npm test --verbose'
                     }
                 }
-                //  stage('e2eTest') {
-                //     steps {
-                //         bat 'npm run test:e2e'
-                //     }
-                // }
+                 stage('e2eTest') {
+                    steps {
+                        bat 'npm run test:e2e'
+                    }
+                }
                     stage('Deliver') {
                                 steps {
                                     bat 'npm run compile'
