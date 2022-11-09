@@ -1,6 +1,7 @@
 pipeline {
     agent any
     tools {nodejs "node"}
+    def tomcatWeb ="C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps"
     stages {
         stage('Build') {
             steps {
@@ -12,14 +13,20 @@ pipeline {
                         bat 'npm test --verbose'
                     }
                 }
-                 stage('e2eTest') {
-                    steps {
-                        bat 'npm run test:e2e'
-                    }
-                }
+                //  stage('e2eTest') {
+                //     steps {
+                //         bat 'npx run test:e2e'
+                //     }
+                // }
                     stage('Deliver') {
                                 steps {
                                     bat 'npm run compile'
+                                
+                                }
+                            }
+                            stage('Deploy to server') {
+                            steps {
+                                    bat "copy build\\web.war \"${tomcatWeb}\\loan-application\""
                                 
                                 }
                             }
