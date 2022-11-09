@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {nodejs "node"}
-    def tomcatWeb ="C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps"
+    // def tomcatWeb ="C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps"
     stages {
         stage('Build') {
             steps {
@@ -26,7 +26,7 @@ pipeline {
                             }
                             stage('Deploy to server') {
                             steps {
-                                    bat "copy build\\web.war \"${tomcatWeb}\\loan-application\""
+                                    bat "copy build\\web.war C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps\\loan-application\"
                                 
                                 }
                             }
