@@ -30,6 +30,16 @@ test(" testcase for apply loan ", async () => {
     // expect(mockfun).toHaveBeenCalled();
   
   })
+  test(" testcase for update ", async () => {
+    const mockfun = jest.fn()
+    const { getByTestId, getByRole } = render(<Provider store={store}><BrowserRouter><HeaderComponent onSubmit={mockfun} /></BrowserRouter></Provider>);
+  
+    await act(async () => {
+      fireEvent.click(getByTestId("update"));
+    })
+    // expect(mockfun).toHaveBeenCalled();
+  
+  })
 
   test(" testcase for loan details ", async () => {
     const mockfun = jest.fn()

@@ -41,7 +41,8 @@
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/redux/",
       "<rootDir>/src/reportWebVitals.js",
-      "<rootDir>/src/index.js"
+      "<rootDir>/src/index.js",
+      "<rootDir>/src/components/UpdateComponent.js"
     ]
   },
   "browserslist": {

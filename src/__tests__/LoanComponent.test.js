@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 afterEach(cleanup)
 
 
-test(" test for validation of input values for loan", async () => {
+test(" test for validation of valid input values for loan", async () => {
 
   const mockfun = jest.fn()
   const { getByTestId, getByRole } = render(<Provider store={store}><BrowserRouter><LoanComponent onSubmit={mockfun} /></BrowserRouter></Provider>);

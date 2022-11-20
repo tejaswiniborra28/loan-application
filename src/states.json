@@ -13,7 +13,7 @@
         {
             "id": "2",
             "state": "Telangana",
-            "cities": ["Hyederabad","Adilabad","Nizamabad"]
+            "cities": ["Hyderabad","Adilabad","Nizamabad"]
         }
     ]
 }

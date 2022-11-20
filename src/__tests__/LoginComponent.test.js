@@ -15,7 +15,7 @@ jest.mock("react-redux", () => ({
 
 
 
-describe("descibe", () => {
+describe("Login test cases", () => {
 
     beforeEach(() => {
         useSelector.mockImplementation(callback => {
@@ -57,7 +57,7 @@ describe("descibe", () => {
 
 })
 
-describe("descibe2", () => {
+describe("test for valid credentials", () => {
 
     beforeEach(() => {
         useSelector.mockImplementation(callback => {

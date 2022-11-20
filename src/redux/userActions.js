@@ -1,4 +1,4 @@
-import {LOGIN, REGISTER,APPLYLOAN,CURRENTUSER , LOGOUT} from './userActionTypes';
+import {LOGIN, REGISTER,APPLYLOAN,CURRENTUSER , LOGOUT, UPDATE} from './userActionTypes';
 
 export const login=(data)=>{
     return {
@@ -31,5 +31,13 @@ export const updateCurrentUser=(obj)=>{
 export const logout=()=>{
     return {
         type: LOGOUT
+    }
+}
+
+export const updatePassword=(obj)=>{
+    console.log(obj,"reducer")
+    return {
+        type: UPDATE,
+        payload: obj
     }
 }

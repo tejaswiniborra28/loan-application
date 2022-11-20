@@ -15,7 +15,7 @@ jest.mock("react-redux", () => ({
 
 
 
-describe("render loan details Component", () => {
+describe("render loan details Component for valid input values", () => {
     beforeEach(() => {
         useSelector.mockImplementation(callback => {
             return callback({
@@ -163,7 +163,7 @@ describe("render loan details Component for purpose home", () => {
             })
         })
     })
-    test(" test for validation of password input", async () => {
+    test("render loanDetails component", async () => {
 
         const { getByTestId } = render(<Provider store={store}>
             <BrowserRouter>
