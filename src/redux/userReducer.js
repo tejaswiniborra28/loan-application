@@ -1,4 +1,4 @@
-import { LOGIN, REGISTER, CURRENTUSER, APPLYLOAN, LOGOUT } from "./userActionTypes";
+import { LOGIN, REGISTER, CURRENTUSER, APPLYLOAN, LOGOUT,UPDATE } from "./userActionTypes";
 
 const initialState = {
     registeredUsers: [],
@@ -36,6 +36,11 @@ const UserReducer = (state = initialState, action) => {
                     currentUser: "",
                     validated:false
                 }
+           case UPDATE: return {
+                ...state,
+                     users:state.users.map((item) => (
+                        item.email===state.currentUser? {...item, password: action.payload.password, confirmpwd:action.payload.password}: item
+                    ))}
        
 
         default:

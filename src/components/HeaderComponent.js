@@ -20,6 +20,9 @@ export default function Header() {
             <div className="logo" data-testid="apply-loan" onClick={()=> navigate("/loanApp")}>
               <Link to="/loanApp">  Apply Loan</Link>
             </div>
+            <div className="logo" data-testid="update" onClick={()=> navigate("/update")}>
+              <Link to="/update">Update</Link>
+            </div>
           
             </div>
             <div className="logo">
