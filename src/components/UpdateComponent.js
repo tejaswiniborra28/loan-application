@@ -52,7 +52,7 @@ const UpdateComponent = () => {
                             </p>
                         </div>
 
-                        <button className='btn' data-testid="btn">update</button>
+                        <button className='btn' data-testid="update-btn">update</button>
                         <div className='error'>{!userEmail && "*Please login to update password"}</div>
 
 
