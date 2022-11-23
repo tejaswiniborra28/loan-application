@@ -30,10 +30,6 @@ describe("Login test cases", () => {
         })
     })
     test(" test for validation of password input", async () => {
-
-
-
-
         const { getByTestId } = render(<Provider store={store}>
             <BrowserRouter>
                 <LoginComponent />
@@ -48,7 +44,8 @@ describe("Login test cases", () => {
 
         })
         const btnIncrement = screen.getByTestId("btn");
-
+        expect(getByTestId("email-input")).toBeInTheDocument();
+        expect(getByTestId("password-test")).toBeInTheDocument();
         await act(async () =>
             fireEvent.click(btnIncrement))
     }
@@ -85,7 +82,7 @@ describe("test for valid credentials", () => {
 
         })
         const btnIncrement = screen.getByTestId("btn");
-
+        expect(btnIncrement).toBeInTheDocument();
         await act(async () =>
             fireEvent.click(btnIncrement))
     }

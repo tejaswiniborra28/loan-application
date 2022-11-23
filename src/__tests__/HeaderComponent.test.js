@@ -15,7 +15,7 @@ test(" testcase for logout ", async () => {
   await act(async () => {
     fireEvent.click(getByTestId("sign-out"));
   })
-  // expect(mockfun).toHaveBeenCalled();
+   expect(getByTestId("sign-out")).toBeInTheDocument();
 
 })
 
@@ -27,7 +27,7 @@ test(" testcase for apply loan ", async () => {
     await act(async () => {
       fireEvent.click(getByTestId("apply-loan"));
     })
-    // expect(mockfun).toHaveBeenCalled();
+    expect(getByTestId("apply-loan")).toBeInTheDocument();
   
   })
   test(" testcase for update ", async () => {
@@ -37,7 +37,7 @@ test(" testcase for apply loan ", async () => {
     await act(async () => {
       fireEvent.click(getByTestId("update"));
     })
-    // expect(mockfun).toHaveBeenCalled();
+    expect(getByTestId("update")).toBeInTheDocument();
   
   })
 
@@ -48,7 +48,7 @@ test(" testcase for apply loan ", async () => {
     await act(async () => {
       fireEvent.click(getByTestId("loan-details"));
     })
-    // expect(mockfun).toHaveBeenCalled();
+    expect(getByTestId("loan-details")).toBeInTheDocument();
   
   })
   

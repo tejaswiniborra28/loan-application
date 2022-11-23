@@ -24,7 +24,11 @@ test(" test for validation of valid input values for loan", async () => {
   await act(async () => {
     fireEvent.click(getByTestId("btn-loan"));
   })
-  // expect(mockfun).toHaveBeenCalled();
+   expect(getByTestId("account-number")).toBeInTheDocument();
+   expect(getByTestId("income-test")).toBeInTheDocument();
+   expect(getByTestId("loan-amount")).toBeInTheDocument();
+   expect(getByTestId("duration-test")).toBeInTheDocument();
+   expect(getByTestId("purpose-test")).toBeInTheDocument();
 
 })
 
