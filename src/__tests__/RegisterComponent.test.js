@@ -28,7 +28,17 @@ test(" test for validation of input values", async () => {
     await act(async () => {
         fireEvent.click(getByTestId("btn-register"),{FirstName:"fgfg",LastName:"Borra",username:"Tejaswini",mobile:"+911234567891",email:"Tej@gmail.com",password:"Tej@123@",confirmpwd:"Tej@123@",pan:"ccccc3456e",country:"india",state:1,city:"Bhimavaram"});
     })
-    //expect(mockfun).toHaveBeenCalled();
+    expect(getByTestId("first name")).toBeInTheDocument();
+    expect(getByTestId("last name")).toBeInTheDocument();
+    expect(getByTestId("username-test")).toBeInTheDocument();
+    expect(getByTestId("mobileno")).toBeInTheDocument();
+    expect(getByTestId("reg-email")).toBeInTheDocument();
+    expect(getByTestId("reg-pwd")).toBeInTheDocument();
+    expect(getByTestId("reg-pwd2")).toBeInTheDocument();
+    expect(getByTestId("reg-pan")).toBeInTheDocument();
+    expect(getByTestId("country")).toBeInTheDocument();
+    expect(getByTestId("state")).toBeInTheDocument();
+    expect(getByTestId("city")).toBeInTheDocument();
 
 
 
